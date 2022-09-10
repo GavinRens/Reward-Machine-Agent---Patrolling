@@ -13,7 +13,7 @@ public abstract class NMRDP_Agent : Agent, PO_Agent_Interface, NMRDP_Interface, 
     {
         rewardMachine = DefineRewardMachine();
         rand = new System.Random();
-        B = States.Count / Parameters.beliefSizeFactor;
+        B = States.Count / Parameters.BELIEF_SIZE_FACTOR;
     }
 
     public rmNode GetNextActiveRMNode(Observation observation, rmNode currentActiveNode)
