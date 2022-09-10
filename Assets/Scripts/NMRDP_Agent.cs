@@ -165,10 +165,6 @@ public abstract class NMRDP_Agent : Agent, PO_Agent_Interface, NMRDP_Interface, 
 
     public abstract Action SelectAction(State currentState);
     
-    
-    //// For BB_Planner_Interface
-
-    //public abstract Action SelectAction(Dictionary<State, float> currentBelief, Agent agent = null);
 }
 
 

@@ -5,7 +5,7 @@ public abstract class Agent
 {
     State currentState;
     Action currentAction;
-    static HashSet<Action> actions;
+    HashSet<Action> actions;
     static List<Observation> observations;
     static protected List<State> states; 
     
@@ -27,54 +27,39 @@ public abstract class Agent
         InitializeAgentState();
     }
 
-    /// <summary>
-    /// Keeps track of the agent's current state
-    /// </summary>
     public State CurrentState { get { return currentState; } set { currentState = value; } }
 
-    /// <summary>
-    /// Remembers the next intended or recently executed action
-    /// </summary>
     public Action CurrentAction { get { return currentAction; } set { currentAction = value; } }
-    
-    /// <summary>
-    /// The set of actions the agent can perform
-    /// </summary>
-    public static HashSet<Action> Actions { get { return actions; } }
 
-    /// <summary>
-    /// The (possibly empty) list of observations the agent can make
-    /// </summary>
+    public HashSet<Action> Actions { get { return actions; } set { actions = value; } }
+
     public static List<Observation> Observations { get { return observations; } }
 
-    /// <summary>
-    /// The list of states the agent can be in
-    /// </summary>
     public static List<State> States { get { return states; } }
 
     /// <summary>
-    /// Returns a successor state
+    /// The state the agent expects to end up in if it executes the action in the current state
     /// </summary>
-    /// <param name="action">The action executed</param>
-    /// <param name="state">The state in which the action was executed</param>
-    /// <returns></returns>
-    public abstract State GetNextState(Action action, State state);
+    /// <param name="action">An action</param>
+    /// <param name="state">An environment state</param>
+    /// <returns>A successor state</returns>
+    public abstract State GetNextState(Action a, State s);
 
-    // <summary>
-    /// Generates the states that the agent can be in
+    /// <summary>
+    /// Generate all states that the environment can be in
     /// </summary>
-    /// <returns>A list of agent states</returns>
+    /// <returns>A list of states</returns>
     public abstract List<State> GenerateStates();
 
     /// <summary>
-    /// Sets the state that the agent will start in
+    /// Specifies which state the agent will start in
     /// </summary>
     public abstract void InitializeAgentState();
 
     /// <summary>
-    /// Defines when the agent will stop being active, i.e., defines the end of an episode. Should always return false if the agent does not stop.
+    /// Defines when the agent has finished / when an episode ends
     /// </summary>
-    /// <param name="state">An 'end' state; where the agent stops or the episode ends</param>
-    /// <returns></returns>
+    /// <param name="state">The state in which the agent finishes / episode ends</param>
+    /// <returns>true or false</returns>
     public abstract bool HasFinished(State state);
 }
