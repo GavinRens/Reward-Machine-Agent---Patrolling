@@ -19,7 +19,7 @@ public class Patrolling_NMRDP_Agent : NMRDP_Agent
 
     public override RewardMachine DefineRewardMachine()
     {
-        RewardMachine rm = new(Observations);
+        RewardMachine rm = new();
 
         var office = new rmNode("office");
         rm.AddNode(office);
