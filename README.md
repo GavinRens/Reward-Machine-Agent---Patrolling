@@ -6,9 +6,18 @@ A framework for controlling agents in Unity (3D real-time engine). The algorithm
 
 I implemented a Monte Carlo Tree Search (MCTS) planner, which plans over the given reward machine. In this patrolling environment, the observation mapping function is not completely deterministic. This means that the MCTS planner must be based on a partially observable Markov decision process (POMDP). The project (repository) for a *treasure-hunting* reward machine agent has only deterministic observations. The treasure-hunting environment thus makes use of a MCTS planner based on a (fully observable) Markov decision process (MDP).
 
-## Installation and/or Setup
-To be provided.
-The project can be cloned from [GitHub](https://github.com/GavinRens/Reward-Machine-Agent---Patrolling)
+## Installation
+- The project is developed with Unity Editor version 2021.3.3f1 and C# version 9.0 on a Windows operating system.
+
+- The project can be cloned from [GitHub](https://github.com/GavinRens/Reward-Machine-Agent---Patrolling).
+
+- In your command line interface, run `git clone <URL>` in the local directory of your choice, where `<URL>` is the url displayed under Code -> HTTPS of the GitHub repo landing page.
+
+- Then, 'Open' the project in your Unity Hub. (Find the project folder in Windows Explorer.)
+
+- Once the project has opened in the Unity editor, select the Patrolling scene in Assets/Scenes of the editor.
+
+- The scene is now playable.
 
 ## Usage / API Reference
  - To be provided.
