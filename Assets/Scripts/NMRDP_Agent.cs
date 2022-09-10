@@ -163,7 +163,7 @@ public abstract class NMRDP_Agent : Agent, PO_Agent_Interface, NMRDP_Interface, 
 
     // For Planner_Interface
 
-    public abstract Action SelectAction(State currentState, Agent agent = null);
+    public abstract Action SelectAction(State currentState);
     
     
     //// For BB_Planner_Interface

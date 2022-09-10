@@ -361,7 +361,7 @@ public class Patrolling_NMRDP_Agent : NMRDP_Agent
     }
 
 
-    public override Action SelectAction(State currentState, Agent agent = null)
+    public override Action SelectAction(State currentState)
     {
         return mctsPlanner.SelectAction(currentState);
     }

@@ -154,7 +154,7 @@ public class MCTS : Planner_Interface
     }
     
     
-    public Action SelectAction(State state, Agent agentParam = null)
+    public Action SelectAction(State state)
     {
         int I = Parameters.ITERATIONS;
         int D = Parameters.MAX_NUOF_ACTIONS; // larger D might be detrimental, because w/ long enough episodes, the goal can be reached no matter the first action
