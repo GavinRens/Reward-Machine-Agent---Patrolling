@@ -55,9 +55,8 @@ public class AgentController : MonoBehaviour
                 alreadyPlanning = true;
                 (State s, float p) = nmrdpAgent.SampleFromBelief(nmrdpAgent.CurrentBelief);
                 nmrdpAgent.CurrentAction = nmrdpAgent.SelectAction(s);
-                //if(nmrdpAgent.CurrentAction != null)
                 actionStatusText.text = nmrdpAgent.CurrentAction.ToString();
-                Debug.Log("CurrentAction: " + nmrdpAgent.CurrentAction);
+                //Debug.Log("CurrentAction: " + nmrdpAgent.CurrentAction);
 
                 //  This switch applies only to navigation actions
                 switch (nmrdpAgent.CurrentAction)
@@ -142,15 +141,16 @@ public class AgentController : MonoBehaviour
             }
             else if (!alreadyExecuting)
             {
+                // Only non-navigation actions allowed here
                 switch (nmrdpAgent.CurrentAction)
                 {
                     case Action.GetRoute:
                         if (nmrdpAgent.CurrentState.waypoint == 0)
                             Debug.Log("Getting which route to take");
                         break;
-                        //case Action.No_Op:
-                        //    Debug.Log("Doing nothing");
-                        //    break;
+                    case Action.No_Op:
+                        Debug.Log("Doing nothing");
+                        break;
                 }
                 alreadyExecuting = true;
                 Invoke("ChangePhaseToUpdateAfterSeconds", 2f);

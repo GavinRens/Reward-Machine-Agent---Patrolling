@@ -16,6 +16,7 @@ public abstract class NMRDP_Agent : Agent, PO_Agent_Interface, NMRDP_Interface, 
         B = States.Count / Parameters.BELIEF_SIZE_FACTOR;
     }
 
+    
     public rmNode GetNextActiveRMNode(Observation observation, rmNode currentActiveNode)
     {
         foreach (rmEdge e in currentActiveNode.edges)

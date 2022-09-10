@@ -4,8 +4,6 @@ using System.Collections.Generic;
 
 public class Environment : MonoBehaviour
 {
-    AgentController agentController;
-    Patrolling_NMRDP_Agent agent;
     static System.Random rand;
     public static List<Observation> the3Routes;
 
@@ -13,12 +11,18 @@ public class Environment : MonoBehaviour
     void Start()
     {
         GameObject agentGO = GameObject.FindGameObjectWithTag("agent");
-        agent = agentGO.GetComponent<AgentController>().nmrdpAgent;
         rand = new System.Random();
         the3Routes = new List<Observation> { Observation.Route_A, Observation.Route_B, Observation.Route_C };
     }
 
 
+    /// <summary>
+    /// The state the agent will end up in if it executes the action in the current state
+    /// This is the `ground truth', not a model of what is expected <see cref="Agent.GetNextState(Action, State)"/>
+    /// </summary>
+    /// <param name="action">An action</param>
+    /// <param name="currentState">An environment state</param>
+    /// <returns>A successor state</returns>
     public static State GetRealNextState(State currentState, Action action)
     {
         if (currentState.waypoint == 0)  // in office
@@ -116,7 +120,14 @@ public class Environment : MonoBehaviour
         return currentState;  // including if action == Action.GetRoute or action == Action.No_Op
     }
 
-    
+
+    /// <summary>
+    /// The observation the agent will perceive in the state it reaches by executing the action
+    /// This is the `ground truth', not a model of what is expected <see cref="NMRDP_Interface.GetObservation(Action, State)"/>
+    /// </summary>
+    /// <param name="a">An action</param>
+    /// <param name="s">An environment state</param>
+    /// <returns>An observation</returns>
     public static Observation GetRealObservation(Action a, State s)
     {
         if (a == Action.GotoOffice)

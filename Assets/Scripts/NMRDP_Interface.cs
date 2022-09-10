@@ -10,17 +10,44 @@ public interface NMRDP_Interface
     static List<State> States { get; }  // Define class State in the code (and same namespace) instantiating this NMRDP
     RewardMachine RewardMachine { get; }
 
-    // Define the reward machine
+    /// <summary>
+    /// Defines the reward machine
+    /// </summary>
+    /// <returns></returns>
     RewardMachine DefineRewardMachine();
 
-    // Define the transition function; the probability that an action performed in 'from' will end up in 'to'
-    float TransitionFunction(State from, Action a, State to);
+    /// <summary>
+    /// The state transition function; 
+    /// </summary>
+    /// <param name="from">The originating state</param>
+    /// <param name="a">An action</param>
+    /// <param name="to">The successor state</param>
+    /// <returns>The probability that an action performed in state "from" will end up in state "to"</returns>
+    public float TransitionFunction(State from, Action a, State to);
 
-    // Define the (possibly non-deterministic or probabilistic) function that returns an observation given an action and a state reached
+    /// <summary>
+    /// Defines which observation is made, given an action and a state reached
+    /// </summary>
+    /// <param name="a">An action</param>
+    /// <param name="s">An environment state</param>
+    /// <returns>An observation</returns>
     public Observation GetObservation(Action a, State s);
 
-    // Calculate immediate reward, given the reward machine and the current action taken in the agent's current state
+    /// <summary>
+    /// Calculates an immediate reward, given the reward machine
+    /// </summary>
+    /// <param name="a">An action</param>
+    /// <param name="s">An environment state</param>
+    /// <returns>A reward</returns>
     public float ImmediateReward(Action a, State s);
+
+    /// <summary>
+    /// Determine which node should become active, given the currently active node and the current observation
+    /// </summary>
+    /// <param name="z">The current observation</param>
+    /// <param name="currentActiveNode">The currently active node</param>
+    /// <returns>The new active node of the reward machine</returns>
+    public rmNode GetNextActiveRMNode(Observation z, rmNode currentActiveNode);
 }
 
 
