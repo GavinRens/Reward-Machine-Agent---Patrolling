@@ -239,7 +239,6 @@ public class Patrolling_NMRDP_Agent : NMRDP_Agent
     }
 
 
-    // Return the observation perceived in (next state) s after performing a
     public override Observation GetObservation(Action a, State s)
     {
         if (a == Action.GotoOffice)

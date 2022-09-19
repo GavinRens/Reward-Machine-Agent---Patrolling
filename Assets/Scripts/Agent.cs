@@ -43,7 +43,7 @@ public abstract class Agent
     /// <param name="action">An action</param>
     /// <param name="state">An environment state</param>
     /// <returns>A successor state</returns>
-    public abstract State GetNextState(Action a, State s);
+    public abstract State GetNextState(Action action, State state);
 
     /// <summary>
     /// Generate all states that the environment can be in
@@ -57,9 +57,9 @@ public abstract class Agent
     public abstract void InitializeAgentState();
 
     /// <summary>
-    /// Defines when the agent has finished / when an episode ends
+    /// Defines when the agent will stop being active, i.e., defines the end of an episode. Should always return false if the agent does not stop.
     /// </summary>
-    /// <param name="state">The state in which the agent finishes / episode ends</param>
+    /// <param name="state">An 'end' state; where the agent stops or the episode ends</param>
     /// <returns>true or false</returns>
     public abstract bool HasFinished(State state);
 }
