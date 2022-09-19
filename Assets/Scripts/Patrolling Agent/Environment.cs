@@ -1,19 +1,10 @@
-using UnityEngine;
 using System.Collections.Generic;
 
 
-public class Environment : MonoBehaviour
+public class Environment
 {
-    static System.Random rand;
-    public static List<Observation> the3Routes;
-
-
-    void Start()
-    {
-        GameObject agentGO = GameObject.FindGameObjectWithTag("agent");
-        rand = new System.Random();
-        the3Routes = new List<Observation> { Observation.Route_A, Observation.Route_B, Observation.Route_C };
-    }
+    static System.Random rand = new System.Random();
+    public static List<Observation> the3Routes = new() { Observation.Route_A, Observation.Route_B, Observation.Route_C };
 
 
     /// <summary>
