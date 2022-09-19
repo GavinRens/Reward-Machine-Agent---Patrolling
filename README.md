@@ -6,6 +6,10 @@ A framework for controlling agents in Unity (3D real-time engine). The algorithm
 
 I implemented a Monte Carlo Tree Search (MCTS) planner, which plans over the given reward machine. In this patrolling environment, the observation mapping function is not completely deterministic. This means that the MCTS planner must be based on a partially observable Markov decision process (POMDP). The project (repository) for a *treasure-hunting* reward machine agent has only deterministic observations. The treasure-hunting environment thus makes use of a MCTS planner based on a (fully observable) Markov decision process (MDP).
 
+## Video
+
+[patrolling agent.webm](https://user-images.githubusercontent.com/41202408/189534057-294cce6e-8d3c-4c8c-8c80-c3eadf54e903.webm)
+
 ## Installation
 - The project is developed with Unity Editor version 2021.3.3f1 and C# version 9.0 on a Windows operating system.
 
